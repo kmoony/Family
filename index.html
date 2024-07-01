@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우리 가족의 추억</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('다운로드.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: white;
+            padding: 50px;
+        }
+        h1 {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #slideshow {
+            max-width: 80%;
+            margin: 20px auto;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .slide {
+            display: none;
+            max-width: 100%;
+            height: auto;
+        }
+        .slide.active {
+            display: block;
+        }
+        .slide-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        #prev {
+            left: 10px;
+        }
+        #next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>우리 가족의 추억</h1>
+    
+    <div id="slideshow">
+        <img class="slide" src="다운로드.jpg" alt="가족 사진 1">
+        <img class="slide" src="다운로드1.jpg" alt="가족 사진 2">
+        <img class="slide" src="다운로드2jpg" alt="가족 사진 3">
+        <a href="#" class="slide-button" id="prev">&lt;</a>
+        <a href="#" class="slide-button" id="next">&gt;</a>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+        let currentSlide = 0;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        prevButton.addEventListener('click', () => showSlide(currentSlide - 1));
+        nextButton.addEventListener('click', () => showSlide(currentSlide + 1));
+
+        // 초기 슬라이드 표시
+        showSlide(0);
+    </script>
+</body>
+</html>
