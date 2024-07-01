@@ -31,9 +31,25 @@
             display: none;
             max-width: 100%;
             height: auto;
+            position: relative;
         }
         .slide.active {
             display: block;
+        }
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .caption {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
         }
         .slide-button {
             position: absolute;
@@ -57,11 +73,26 @@
     <h1>우리 가족의 추억</h1>
     
     <div id="slideshow">
-        <img class="slide" src="가족1.jpg" alt="집앞 카페에서">
-        <img class="slide" src="가족2.jpg" alt="스키장">
-        <img class="slide" src="가족3jpg" alt="베트남">
-    	<img class="slide" src="가족4.jpg" alt="강릉">
-        <img class="slide" src="가족5.jpg" alt="오사카">
+        <div class="slide active">
+            <img src="가족1.jpg" alt="집앞 카페에서">
+            <div class="caption">집앞 카페에서</div>
+        </div>
+        <div class="slide">
+            <img src="가족2.jpg" alt="스키장">
+            <div class="caption">스키장</div>
+        </div>
+        <div class="slide">
+            <img src="가족3.jpg" alt="베트남">
+            <div class="caption">베트남</div>
+        </div>
+        <div class="slide">
+            <img src="가족4.jpg" alt="강릉">
+            <div class="caption">강릉</div>
+        </div>
+        <div class="slide">
+            <img src="가족5.jpg" alt="오사카">
+            <div class="caption">오사카</div>
+        </div>
         <a href="#" class="slide-button" id="prev">&lt;</a>
         <a href="#" class="slide-button" id="next">&gt;</a>
     </div>
